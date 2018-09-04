@@ -6,7 +6,7 @@ uses myOutputSave.txt's content and eliminates the duplicates of the words, and 
 in myOutput.txt.
 
  *wordCount.py takes input and output 
-`$ python wordCount.py speech.txt myOutput.txt` 
+`$ python wordCount.py declaration.txt myOutput.txt` 
 `$ python wordCount.py speech.txt myOutput.txt` 
 
  *Test 
