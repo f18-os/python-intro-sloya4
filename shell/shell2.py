@@ -1,7 +1,9 @@
 #! /usr/bin/env python3
 
 import os, sys, time, re
-PS1 ="$ "
+
+PS1 ="$ "  #command prompt
+
 while True:
     instruction = input(PS1)
     if instruction.lower() == "exit":
@@ -32,7 +34,7 @@ while True:
         os.write(1, ("Child: My pid==%d.  Parent's pid=%d\n" % (os.getpid(), pid)).encode())
         
     
-        if len(inst1) != 1 and '|' != inst1[1]:
+        if len(inst1) != 1 and '|' != inst1[1]: 
             if '<' == inst1[1]:
                 temp = inst1[0]
                 inst1[0] = inst1[2]
@@ -45,7 +47,7 @@ while True:
                 os.set_inheritable(fd, True)
                 os.write(2, ("Child: opened fd=%d for writing\n" % fd).encode())
     
-        elif len(inst1) != 1:
+        elif len(inst1) != 1: #instruction with pipe
             os.close(1)
             os.dup(fds[1])
             os.close(fds[0])
@@ -69,7 +71,7 @@ while True:
             rc2 = os.fork()
     except IndexError:
         pass
-    if rc2 == 0:
+    if rc2 == 0:  #child 2
         os.write(1, ("Child: My pid==%d. Parent's pid=%d\n" % (os.getpid(), pid)).encode())
         
         os.close(0)
