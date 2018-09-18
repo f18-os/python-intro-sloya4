@@ -7,4 +7,3 @@ The shell waits for the user's command and handles 6 cases.
      
      
      
-Worked together with Bryan Figueroa, developing the logic and format of the code.
