@@ -46,6 +46,15 @@ while True:
                 fd = sys.stdout.fileno() # os.open("p4-output.txt", os.O_CREAT)
                 os.set_inheritable(fd, True)
                 os.write(2, ("Child: opened fd=%d for writing\n" % fd).encode())
+            
+            elif '>' == inst1[1]:
+                
+                os.close(1)                 # redirect child's stdout
+                sys.stdout = open(inst1[2], "w")
+                fd = sys.stdout.fileno() # os.open("p4-output.txt", os.O_CREAT)
+                os.set_inheritable(fd, True)
+                os.write(2, ("Child: opened fd=%d for writing\n" % fd).encode())
+                
     
         elif len(inst1) != 1: #instruction with pipe
             os.close(1)
